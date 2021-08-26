@@ -1,21 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import { store } from './app/store';
-import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
+import { createBrowserHistory } from 'history';
+import { storeCreator } from './util/storeCreator';
+import { Root } from './app/root';
+import sagas from './app/sagas';
+import * as reducers from './app/reducers';
 
-ReactDOM.render(
+const history = createBrowserHistory();
+
+const reduxStore = storeCreator({
+  initialState: {},
+  reducers,
+  sagas,
+  history,
+});
+
+render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <Root store={reduxStore} history={history} />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
