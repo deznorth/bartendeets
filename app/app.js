@@ -1,21 +1,21 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-require('dotenv').config({ path: path.resolve(process.cwd(), '.env.backend.local') });
+require('dotenv').config({ path: path.resolve(process.cwd(), 'app', '.env.backend.local') });
 
 const PORT = process.env.PORT || 3001;
 
 // Route Imports
 const rootRouter = require('./controllers');
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '..', 'build')));
 
 // Routes
 app.use('/api', rootRouter);
 
 // React front-end catch-all route
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 });
 
 app.listen(PORT, err => {
