@@ -2,6 +2,9 @@ import { lazy } from 'react';
 
 // Pages
 const LandingPage = lazy(() => import('../views/Landing'));
+const MenuPage = lazy(() => import('../views/Menu'));
+const LoginPage = lazy(() => import('../views/Login'));
+const QueuePage = lazy(() => import('../views/Queue'));
 
 export const SITEMAP = {
   Landing: {
@@ -14,18 +17,18 @@ export const SITEMAP = {
     name: 'menu',
     path: '/menu',
     exact: true,
-    // component: MenuPage,
+    component: MenuPage,
   },
   Login: {
     name: 'login',
     path: '/login',
     exact: true,
-    // component: ExamplePage,
+    component: LoginPage,
   },
   Queue: {
     name: 'queue',
     path: '/queue',
     exact: true,
-    // component: ExamplePage,
+    component: QueuePage,
   },
 };
