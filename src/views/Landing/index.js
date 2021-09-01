@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as actions from './modules/actions';
 
-const Menu = props => {
+const Landing = props => {
   const {
     init,
     exampleResponse,
@@ -22,7 +22,7 @@ const Menu = props => {
 };
 
 export default connect(state => ({
-  ...state.menuPage,
+  ...state.landingPage,
 }), {
   init: actions.init,
-})(Menu);
+})(Landing);

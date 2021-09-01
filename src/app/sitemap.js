@@ -1,14 +1,20 @@
 import { lazy } from 'react';
 
 // Pages
-const MenuPage = lazy(() => import('../views/Menu'));
+const LandingPage = lazy(() => import('../views/Landing'));
 
 export const SITEMAP = {
-  Menu: {
-    name: 'menu',
+  Landing: {
+    name: 'landing',
     path: '/',
     exact: true,
-    component: MenuPage,
+    component: LandingPage,
+  },
+  Menu: {
+    name: 'menu',
+    path: '/menu',
+    exact: true,
+    // component: MenuPage,
   },
   Login: {
     name: 'login',
