@@ -1,7 +1,7 @@
-import MenuSagas from './Menu/modules/sagas';
+import LandingSagas from './Landing/modules/sagas';
 
 const viewSagas = [
-  ...MenuSagas,
+  ...LandingSagas,
 ];
 
 export default viewSagas;

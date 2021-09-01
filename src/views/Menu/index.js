@@ -1,28 +1,11 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import * as actions from './modules/actions';
+import React from 'react';
 
-const Menu = props => {
-  const {
-    init,
-    exampleResponse,
-  } = props;
-
-  useEffect(() => {
-    init();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+const Menu = () => {
   return (
     <div>
-      <h1>Hello World!</h1>
-      <pre>{JSON.stringify(exampleResponse, null, 2)}</pre>
+      <h1>Menu Page</h1>
     </div>
   );
 };
 
-export default connect(state => ({
-  ...state.menuPage,
-}), {
-  init: actions.init,
-})(Menu);
+export default Menu;

@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 
-const base = 'menu/';
+const base = 'landing/';
 const makeAction = action => createAction(`${base}${action}`);
 
 // Shared actions (used by sagas and reducers)
