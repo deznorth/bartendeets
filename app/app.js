@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 require('dotenv').config({ path: path.resolve(process.cwd(), 'app', '.env.backend.local') });
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 const PORT = process.env.PORT || 3001;
 
@@ -9,6 +11,9 @@ const PORT = process.env.PORT || 3001;
 const rootRouter = require('./controllers');
 
 app.use(express.static(path.join(__dirname, '..', 'build')));
+app.use(express.json());
+app.use(cookieParser());
+app.use(morgan('tiny'));
 
 // Routes
 app.use('/api', rootRouter);
