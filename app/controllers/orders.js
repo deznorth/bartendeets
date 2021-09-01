@@ -3,6 +3,8 @@ const router = new Router();
 const {
   getAllOrders,
   createOrder,
+  updateOrderStatus,
+  deleteOrder,
 } = require('../models/orders');
 
 // Get all orders
@@ -18,13 +20,15 @@ router.post('/', async (req, res) => {
 });
 
 // Update an order
-router.put('/:orderId', (req, res) => {
-  res.send(`update the order with id = ${req.params.orderId}`);
+router.put('/:orderId', async (req, res) => {
+  const result = await updateOrderStatus(req.params.orderId, req.body.status);
+  res.send(result);
 });
 
 // Delete an order
-router.delete('/:orderId', (req, res) => {
-  res.send(`delete the order with id = ${req.params.orderId}`);
+router.delete('/:orderId', async (req, res) => {
+  const result = await deleteOrder(req.params.orderId);
+  res.send(result);
 });
 
 module.exports = router;

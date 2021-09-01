@@ -6,6 +6,7 @@ exports.getAllOrders = () => pgClient.use(async conn => {
   const ordersQuery = `
     SELECT *
     FROM orders
+    ORDER BY created_date
   `;
 
   const orderDrinksQuery = `
@@ -56,5 +57,38 @@ exports.createOrder = orderRequest => pgClient.useTransaction(async conn => {
     return orderResult?.rows[0];
   } else {
     throw new Error('error assigning drink to new order');
+  }
+});
+
+exports.updateOrderStatus = (orderId, status) => pgClient.use(async conn => {
+  const query = `
+    UPDATE orders
+    SET status = $2
+    WHERE order_id = $1
+    RETURNING *
+  `;
+
+  const updateResult = await conn.query(query, [orderId, status]);
+
+  if (updateResult.rowCount === 1) {
+    return updateResult?.rows[0];
+  } else {
+    throw new Error(`error updating order status for order_id = ${orderId}`);
+  }
+});
+
+exports.deleteOrder = orderId => pgClient.use(async conn => {
+  const query = `
+    DELETE FROM orders
+    WHERE order_id = $1
+    RETURNING order_id
+  `;
+
+  const deleteResult = await conn.query(query, [orderId]);
+
+  if (deleteResult.rowCount === 1) {
+    return deleteResult?.rows[0];
+  } else {
+    throw new Error(`error deleting order with order_id = ${orderId}`);
   }
 });
