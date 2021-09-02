@@ -2,12 +2,19 @@ import { handleActions } from 'redux-actions';
 import * as actions from './actions';
 
 const INITIAL_STATE = {
-  exampleResponse: null,
+  loading: false,
+  drinks: [],
 };
 
 export default handleActions({
-  [actions.initialized]: (state, { payload }) => ({
+  [actions.fetchingDrinks]: state => ({
     ...state,
-    exampleResponse: payload,
+    loading: true,
+    drinks: [],
+  }),
+  [actions.fetchedDrinks]: (state, { payload }) => ({
+    ...state,
+    loading: false,
+    drinks: payload,
   }),
 }, INITIAL_STATE);

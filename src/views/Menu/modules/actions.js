@@ -4,7 +4,8 @@ const base = 'menu/';
 const makeAction = action => createAction(`${base}${action}`);
 
 // Shared actions (used by sagas and reducers)
-export const initialized = makeAction('INITIALIZED');
+export const fetchingDrinks = makeAction('FETCHING_DRINKS');
+export const fetchedDrinks = makeAction('FETCHED_DRINKS');
 
 // Saga-only actions
-export const init = makeAction('INIT');
+export const fetchDrinks = makeAction('FETCH_DRINKS');
