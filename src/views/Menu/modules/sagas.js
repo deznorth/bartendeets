@@ -3,7 +3,7 @@ import * as actions from './actions';
 import proxies from '../../../util/proxies';
 
 function* init() {
-  yield console.log('test from landing');
+  yield console.log('test from menu');
   const response = yield call(proxies.getExample);
   yield put(actions.initialized(response.data));
 }

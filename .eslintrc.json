@@ -1,0 +1,8 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    // enable additional rules
+    "react-hooks/exhaustive-deps": "OFF",
+    "no-restricted-imports": 0
+  }
+}
