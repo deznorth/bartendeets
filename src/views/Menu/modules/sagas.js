@@ -2,14 +2,14 @@ import { takeEvery, call, put } from "redux-saga/effects";
 import * as actions from './actions';
 import proxies from '../../../util/proxies';
 
-function* init() {
-  yield console.log('test from menu');
-  const response = yield call(proxies.getExample);
-  yield put(actions.initialized(response.data));
+function* getDrinks() {
+  yield put(actions.fetchingDrinks());
+  const response = yield call(proxies.getDrinks);
+  yield put(actions.fetchedDrinks(response.data));
 }
 
 const sagas = [
-  takeEvery(actions.init, init),
+  takeEvery(actions.fetchDrinks, getDrinks),
 ];
 
 export default sagas;
