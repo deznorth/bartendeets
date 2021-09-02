@@ -15,12 +15,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
+  min-height: 100vh;
   font-size: 1.6rem;
 }
 
 #root {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 code {

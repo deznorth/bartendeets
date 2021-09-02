@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from './modules/actions';
+import DrinkCard from '../../components/DrinkCard';
 
 import './styles.scss';
 
@@ -24,9 +25,9 @@ const Menu = props => {
         <input type="text" placeholder="Enter cocktail name" />
         <button className="primary-color">View My Cart</button>
       </div>
-      <div>
+      <div className={`${cn}__drinks-grid`}>
         {
-          !loading && drinks?.map(d => <p>{d.name}</p>)
+          !loading && drinks?.map(drink => <DrinkCard key={drink.drink_id} {...drink} />)
         }
       </div>
     </div>

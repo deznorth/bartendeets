@@ -8,4 +8,9 @@
     align-items: center;
     padding-bottom: 4rem;
   }
+
+  &__drinks-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
