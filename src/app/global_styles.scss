@@ -1,3 +1,11 @@
+html {
+  min-height: 100%;
+  background: linear-gradient(180deg, #2E2B27 0%, #000000 70%);
+  background-repeat: no-repeat;
+  color: #ffffff;
+  font-size: 10px;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
@@ -5,6 +13,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  font-size: 1.6rem;
+}
+
+#root {
+  height: 100vh;
 }
 
 code {
