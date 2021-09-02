@@ -23,11 +23,13 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+    box-shadow: 0 4px 12px 6px rgba(black, 0.2);
 
     p {
       font-size: 1.8rem;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       line-height: 30px;
+      text-align: justify;
     }
 
     .drink-card__extra {
