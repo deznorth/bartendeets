@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from "redux-saga/effects";
+import { takeLatest, call, put } from "redux-saga/effects";
 import * as actions from './actions';
 import proxies from '../../../util/proxies';
 
@@ -9,7 +9,7 @@ function* getDrinks() {
 }
 
 const sagas = [
-  takeEvery(actions.fetchDrinks, getDrinks),
+  takeLatest(actions.fetchDrinks, getDrinks),
 ];
 
 export default sagas;

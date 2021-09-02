@@ -1,16 +1,40 @@
+@import '../../util/common.scss';
 
 .menu-page {
-  padding: 6rem 15.6rem;
+  padding: 4rem;
+
+  @media screen and (min-width: $media-md) {
+    padding: 6rem 15.6rem;
+  }
 
   &__actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
+    padding: 2rem 0;
+
+    @media screen and (min-width: $media-md) {
+      padding: 2rem;
+    }
   }
 
   &__drinks-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(420px, 25vw);
+    gap: 2rem;
+    grid-auto-rows: 640px;
+    justify-content: center;
+
+    @media screen and (min-width: $media-md) {
+      grid-template-columns: repeat(2, minmax(420px, 25vw));
+    }
+
+    @media screen and (min-width: $media-lg) {
+      grid-template-columns: repeat(3, minmax(420px, 25vw));
+    }
+
+    @media screen and (min-width: $media-xl) {
+      grid-template-columns: repeat(4, minmax(420px, 25vw));
+    }
   }
 }

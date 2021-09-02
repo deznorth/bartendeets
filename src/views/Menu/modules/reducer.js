@@ -10,10 +10,11 @@ export default handleActions({
   [actions.fetchingDrinks]: state => ({
     ...state,
     loading: true,
+    drinks: [],
   }),
   [actions.fetchedDrinks]: (state, { payload }) => ({
     ...state,
     loading: false,
-    drinks: payload ?? [],
+    drinks: payload,
   }),
 }, INITIAL_STATE);
